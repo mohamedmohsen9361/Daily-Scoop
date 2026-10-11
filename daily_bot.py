@@ -11,11 +11,22 @@ TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
 TELEGRAM_CHAT_ID = "-5460023224"
 
 RSS_SOURCES = {
+    # الأخبار العربية (اقتصاد وسياسة)
+    "CNBC Arabia": "https://www.cnbcarabia.com/rsslatestnews.xml",
+    "CNN Arabic": "https://arabic.cnn.com/api/v1/rss/middle_east/rss",
     "BBC Arabic": "http://feeds.bbci.co.uk/arabic/rss.xml",
-    "BBC World News": "http://feeds.bbci.co.uk/news/world/rss.xml",
-    "BBC Business": "http://feeds.bbci.co.uk/news/business/rss.xml",
-    "BBC Europe": "http://feeds.bbci.co.uk/news/world/europe/rss.xml",
-    "Yahoo Finance": "https://finance.yahoo.com/news/rssindex"
+    
+    # صحف ومجلات اقتصادية وسياسية عالمية
+    "Financial Times": "https://www.ft.com/?format=rss",
+    "The Economist": "https://www.economist.com/finance-and-economics/rss.xml",
+    "Project Syndicate": "https://www.project-syndicate.org/rss",
+    "Foreign Affairs": "https://www.foreignaffairs.com/rss.xml",
+    
+    # أخبار الشأن الأوروبي والعالمي
+    "POLITICO Europe": "https://www.politico.eu/feed/",
+    "Reuters": "https://www.reutersagency.com/feed/?best-topics=political-general&type=rx",
+    "CNN World": "http://rss.cnn.com/rss/edition.rss",
+    "BBC World": "http://feeds.bbci.co.uk/news/world/rss.xml"
 }
 
 def fetch_all_news():
