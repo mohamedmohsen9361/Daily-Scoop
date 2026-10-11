@@ -39,7 +39,8 @@ def fetch_all_news():
             res = requests.get(url, headers=headers, timeout=15)
             if res.status_code == 200:
                 feed = feedparser.parse(res.content)
-                for entry in feed.entries[:3]:
+                # تم التعديل هنا لسحب خبرين فقط من كل مصدر لتوفير الباقة
+                for entry in feed.entries[:2]:
                     title = entry.get('title', '').strip()
                     summary_raw = entry.get('summary', '') or entry.get('description', '')
                     summary = BeautifulSoup(summary_raw, "html.parser").get_text()[:200].strip()
