@@ -1,0 +1,30 @@
+name: Daily News Bot
+
+on:
+  schedule:
+    # التوقيت: 02:00 UTC يطابق 05:00 صباحاً بتوقيت القاهرة
+    - cron: '0 2 * * *'
+  workflow_dispatch: # يسمح لك بتشغيل البوت يدوياً للتجربة
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install Dependencies
+      run: |
+        pip install requests feedparser beautifulsoup4 google-genai
+
+    - name: Run Python Script
+      env:
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      run: python daily_bot.py
