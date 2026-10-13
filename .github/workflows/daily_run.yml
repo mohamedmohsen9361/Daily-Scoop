@@ -3,7 +3,7 @@ name: Daily News Bot
 on:
   schedule:
     # التوقيت: 02:00 UTC يطابق 05:00 صباحاً بتوقيت القاهرة
-    - cron: '0 2 * * *'
+    - cron: '15 2 * * *'
   workflow_dispatch: # يسمح لك بتشغيل البوت يدوياً للتجربة
 
 jobs:
